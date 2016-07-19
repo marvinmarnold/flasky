@@ -33,3 +33,10 @@ $ git add . # stage all files
 $ git commit -m “My first commit”
 $ git push origin master
 ```
+
+## Exercise 1: Simple Hello World!
+
+1. Create `hello.py` (Sublime, etc.)
+2. Go back to terminal with `(venv)` and run `python hello.py`.
+3. Open up your browser (Firefox, etc.) and type in the address `localhost:5000` or `127.0.0.1:5000`.
+4. You should see **Hello World!**
