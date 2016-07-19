@@ -101,3 +101,23 @@ if __name__ == '__main__':
 - Create `/templates/user.html` containing `<h1>Hello, {{name}}!</h1>`.
 - If not still running, restart server with `python hello.py`
 - Go to `localhost:5000` and `localhost:5000/YOU` and make sure pages still load.
+
+### Exercise 4: Custom Error Pages
+- Add a custom 404 route to `hello.py` with:
+
+```python
+...
+
+@app.route('/user/<name>')
+def user(name):
+  return render_template('user.html', name=name)
+
+@app.errorhandler(404)
+def page_not_found(e):
+  return render_template('404.html')
+
+if __name__ == '__main__':
+  app.run(debug=True)
+```
+- Create a file `/templates/404.html` with the content `<h1>Sorry, this page was not found.</h1>`
+- Confirm that `localhost:5000/some-non-existant-route` loads the new 404 page.
