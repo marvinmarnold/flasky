@@ -36,7 +36,40 @@ $ git push origin master
 
 ## Exercise 1: Simple Hello World!
 
-1. Create `hello.py` (Sublime, etc.)
-2. Go back to terminal with `(venv)` and run `python hello.py`.
-3. Open up your browser (Firefox, etc.) and type in the address `localhost:5000` or `127.0.0.1:5000`.
-4. You should see **Hello World!**
+- Create `hello.py` (Sublime, etc.). Add:
+
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+  return '<h1>Hello World!</h1>'
+
+if __name__ == '__main__':
+  app.run(debug=True)
+```
+- Go back to terminal with `(venv)` and run `python hello.py`.
+- Open up your browser (Firefox, etc.) and type in the address `localhost:5000` or `127.0.0.1:5000`.
+- You should see **Hello World!**
+
+## Exercise 2: Simple Hello World with dynamic route
+- Modify `hello.py` to:
+
+```python
+
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+  return '<h1>Hello World!</h1>'
+
+@app.route('/user/<name>')
+def user(name):
+  return '<h1>Hello, %s!</h1>' % name
+
+if __name__ == '__main__':
+  app.run(debug=True)
+```
+- Go to `localhost:5000/user/YOUR_NAME` and confirm it outputs **Hello, YOUR_NAME!**.
