@@ -73,3 +73,31 @@ if __name__ == '__main__':
   app.run(debug=True)
 ```
 - Go to `localhost:5000/user/YOUR_NAME` and confirm it outputs **Hello, YOUR_NAME!**.
+
+### Exercise 3: Templates
+
+#### Exercise 3a: Referencing Templates
+In `hello.py`, add `render_template` to imports and have methods call `render_template` instead of returning HTML directly.
+
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+  return render_template('index.html')
+
+@app.route('/user/<name>')
+def user(name):
+  return render_template('user.html', name=name)
+
+if __name__ == '__main__':
+  app.run(debug=True)
+```
+
+#### Excercise 3b: Creating Templates
+- Create a directory `/templates` (relative to project root, not computer root)
+- Create `/templates/index.html` containing `<h1>Hello World!</h1>`.
+- Create `/templates/user.html` containing `<h1>Hello, {{name}}!</h1>`.
+- If not still running, restart server with `python hello.py`
+- Go to `localhost:5000` and `localhost:5000/YOU` and make sure pages still load.
