@@ -4,16 +4,18 @@
 <div class="container">
   <h1>Hello World!</h1>
   <div class="row">
-    <div class='col-md-4 col-xs-12'>
-      <div class="card">
-        <img class="card-img-top img img-fluid" src="{{user.pic}}" alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">{{user.name}}</h4>
-          <p class="card-text">{{user.description}}</p>
-          <a href="#" class="btn btn-primary">View Profile</a>
+    {% for user in users %}
+      <div class='col-md-4 col-xs-12'>
+        <div class="card">
+          <img class="card-img-top img img-fluid" src="{{user.pic}}" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">{{user.name}}</h4>
+            <p class="card-text">{{user.description}}</p>
+            <a href="#" class="btn btn-primary">View Profile</a>
+          </div>
         </div>
       </div>
-    </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock %}
