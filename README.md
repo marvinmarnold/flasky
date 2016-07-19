@@ -121,3 +121,65 @@ if __name__ == '__main__':
 ```
 - Create a file `/templates/404.html` with the content `<h1>Sorry, this page was not found.</h1>`
 - Confirm that `localhost:5000/some-non-existant-route` loads the new 404 page.
+
+### Excercise 5: Templates
+#### Excercise 5a: User template blocks
+- Add a title, navbar, and content blocks to `user.html`.
+
+```python
+{% block title %}Flasky{% endblock %}
+
+{% block navbar %}
+  <ul>
+    <li><a href='/'>Home</a></li>
+  </ul>
+{% endblock %}
+
+{% block content %}
+  <h1>Hello, {{name}}!</h1>
+{% endblock %}
+```
+
+- Open `localhost:5000/user/name` and make sure it loads.
+
+#### Excercise 5b: Create base template
+- Create 'templates/base.html':
+
+```python
+{% block title %}Flasky{% endblock %}
+
+{% block navbar %}
+  <ul>
+    <li><a href='/'>Home</a></li>
+  </ul>
+{% endblock %}
+
+{% block content %}
+  <h1>Hello, {{name}}!</h1>
+{% endblock %}
+```
+- Have `user.html`, `index.html`, and `404.html` all appropriately extend `base.thml`.
+
+```python
+# user.html
+{% block content %}
+  <h1>Hello, {{name}}!</h1>
+{% endblock %}
+
+# index.html
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Hello World!</h1>
+{% endblock %}
+
+# 404.html
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Sorry, this page was not found.</h1>
+{% endblock %}
+
+```
+
+- Verify that all pages now load with a navbar: `localhost:5000`, `localhost:5000/yourname` & `localhost:5000/user/yourname`.
