@@ -182,4 +182,5 @@ if __name__ == '__main__':
 
 ```
 
-- Verify that all pages now load with a navbar: `localhost:5000`, `localhost:5000/yourname` & `localhost:5000/user/yourname`.
+- Verify that all pages now load with a navbar: `localhost:5000`, `localhost:5000/yourname` &
+ `localhost:5000/user/yourname`.
