@@ -1,9 +1,15 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
+user1 = {
+    'name': "Marvin",
+    'pic': "https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.wildsoundmovies.com%2Fimages%2Fpulp_fiction_marvin.jpg&f=1",
+    'description': "Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you."
+}
+
 @app.route('/')
 def index():
-  return render_template('index.html')
+  return render_template('index.html', user=user1)
 
 @app.route('/user/<name>')
 def user(name):
