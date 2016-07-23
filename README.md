@@ -242,7 +242,7 @@ Run your code and use `print_databases.py`
 #### Integrate SQLAlchemy into your Project!
 
 1. Copy the files to your project app
-2. Rename the database from "flasky.db" to "whateveryouwant.db" in `initialize.py`, `add_to_database.py`, `print_databases.py`
+2. Rename the database from "flasky.db" to "whateveryouwant.db" in `initialize.py` and `add_to_database.py`
 3. Update `database.setup.py` with your Models
 4. Update `initialize.py` to populate your tables
 5. Test adding new data in `add_to_database.py`
