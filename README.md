@@ -187,6 +187,8 @@ if __name__ == '__main__':
 
 
 ### Databases
+
+#### Refresher Exercises  Setup
 - Install Flask wrapper for SQLAlchemy
 ```bash
 # Verify directory structure
@@ -195,8 +197,6 @@ $ cd && pwd
 $ cd flasky
 $ pip3.5 install flask-sqlalchemy
 ```
-
-#### Refresher Exercises Database Setup
 
 Now, set up the database. *Warning: if you already have people in the
 database, this command will delete all of them and reset it to Marvin,
