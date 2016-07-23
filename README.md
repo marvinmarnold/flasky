@@ -196,8 +196,7 @@ $ cd flasky
 $ pip3.5 install flask-sqlalchemy
 ```
 
-- Refesher Exercises:
-### Set up the database
+#### Refresher Exercises Database Setup
 
 Now, set up the database. *Warning: if you already have people in the
 database, this command will delete all of them and reset it to Marvin,
@@ -213,7 +212,7 @@ For this lab, you'll write your code either interactively in Python, or in
 Write code in `add_to_database.py` to add you and your partner to the database.
 Run your code and use `print_databases.py`
 
- ### Exercise: Read
+#### Exercise: Read
 
 1. In Python, use `session.query` to find the hometown of the only German person in the database.
 
