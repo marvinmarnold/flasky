@@ -205,11 +205,10 @@ database or add too many people.
 
     python initialize.py
 
-For this lab, you'll write your code either interactively in Python, or in
-`add_to_database.py`.
+For this lab, you'll write your code `add_to_database.py`.
 
 #### Exercise: Create
-Write code in `add_to_database.py` to add you and your partner to the database.
+Write code in `add_to_database.py` to add you and a teammate to the database.
 Run your code and use `print_databases.py`
 
 #### Exercise: Read
@@ -224,21 +223,25 @@ Run your code and use `print_databases.py`
 
     def find_nationality(nat):
 
+3. Run your code and use `print_databases.py
+
 #### Exercise: Update
 1. Suppose Lorenzo changes his first name to Lori. Update his name in the
    database, and use both `print_databases.py` and `session.query` to make sure
    your change worked.
 
-2. Do the same thing if Lisa changes her first name to Anastasia.
+2. Do the same thing if Anna changes her first name to Anastasia.
+
+3. Run your code and use `print_databases.py
 
 #### Exercise: Delete
-From Python, remove all the instructors and staff from the database so that only students
-and TAs are left.
+1. From Python, remove all the males from the database so that only females are left.
+2. Run your code and use `print_databases.py
 
 #### Integrate SQLAlchemy into your Project!
 
 1. Copy the files to your project app
-2. Rename the database in initialize.py, add_to_database.py, print_databases.py
+2. Rename the database from 'flasky.db' to 'whateveryouwant.db' in initialize.py, add_to_database.py, print_databases.py
 3. Update database.setup.py with your Models
 4. Update initialize.py to populate your tables
 5. Test adding new data in add_to_database.py
