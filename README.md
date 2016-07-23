@@ -224,7 +224,7 @@ Run your code and use `print_databases.py`
 
     def find_nationality(nat):
 
-3. Run your code and use `print_databases.py'
+3. Run your code and use `print_databases.py`
 
 #### Exercise: Update
 1. Suppose Lorenzo changes his first name to Lori. Update his name in the
@@ -248,6 +248,16 @@ Run your code and use `print_databases.py`
 5. Test adding new data in `add_to_database.py`
 6. Initialize and test with `print_databases.py`
 7. Integrate into your app (hint: use `add_to_database.py` as reference)
+
+#### TIP! When updating models in `database_setup.py`
+
+If you need to add a new column to an existing table or change an attribute:
+
+1. Modify your Models in `database_setup.py
+2. Update `initialize.py`
+3. Delete your .db file
+4. Recreate your db by running `database_setup.py`
+
 
 
 
