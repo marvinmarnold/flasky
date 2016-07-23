@@ -186,7 +186,7 @@ if __name__ == '__main__':
  `localhost:5000/user/yourname`.
 
 
-### Databases
+### Exercise 6: Databases
 
 #### Refresher Exercises  Setup
 - Install Flask wrapper for SQLAlchemy
