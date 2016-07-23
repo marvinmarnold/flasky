@@ -194,9 +194,7 @@ $ cd && pwd
 > /home/student # if it doesn’t say that, get an instructor
 $ cd flasky
 $ pip3.5 install flask-sqlalchemy
-
-- Install Flask wrapper for SQLAlchemy
-```bash
+```
 
 - Refesher Exercises:
 ### Set up the database
