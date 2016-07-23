@@ -200,8 +200,8 @@ $ pip3.5 install flask-sqlalchemy
 ### Set up the database
 
 Now, set up the database. *Warning: if you already have people in the
-database, this command will delete all of them and reset it to Priscila,
-Lorenzo, Jacek, Amit, and Mustafa.* You can use this any time if you mess up the
+database, this command will delete all of them and reset it to Marvin,
+Lorenzo, Anna, Lisa, and Eric.* You can use this any time if you mess up the
 database or add too many people.
 
     python initialize.py
