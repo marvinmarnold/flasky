@@ -203,7 +203,7 @@ database, this command will delete all of them and reset it to Marvin,
 Lorenzo, Anna, Lisa, and Eric.* You can use this any time if you mess up the
 database or add too many people.
 ```bash
-$python initialize.py
+$ python initialize.py
 ```
 
 For this lab, you'll write your code `add_to_database.py`.
