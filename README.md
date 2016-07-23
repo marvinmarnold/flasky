@@ -184,3 +184,72 @@ if __name__ == '__main__':
 
 - Verify that all pages now load with a navbar: `localhost:5000`, `localhost:5000/yourname` &
  `localhost:5000/user/yourname`.
+
+
+### Databases
+- Install Flask wrapper for SQLAlchemy
+```bash
+# Verify directory structure
+$ cd && pwd
+> /home/student # if it doesn’t say that, get an instructor
+$ cd flasky
+$ pip3.5 install flask-sqlalchemy
+
+- Install Flask wrapper for SQLAlchemy
+```bash
+
+- Refesher Exercises:
+### Set up the database
+
+Now, set up the database. *Warning: if you already have people in the
+database, this command will delete all of them and reset it to Priscila,
+Lorenzo, Jacek, Amit, and Mustafa.* You can use this any time if you mess up the
+database or add too many people.
+
+    python initialize.py
+
+For this lab, you'll write your code either interactively in Python, or in
+`add_to_database.py`.
+
+#### Exercise: Create
+Write code in `add_to_database.py` to add you and your partner to the database.
+Run your code and use `print_databases.py`
+
+ ### Exercise: Read
+
+1. In Python, use `session.query` to find the hometown of the only German person in the database.
+
+2. Write a function `find_nationality` in `add_to_database.py` that takes a
+   nationality and returns a list of names of people in the database with that
+   nationality. For example, `find_nationality('American')` should return
+   `['Eric Westberg', 'Lorenzo Brown', 'Marvin Arnold, 'Anna Premo']` (the order doesn't matter). Your code
+   should start like this:
+
+    def find_nationality(nat):
+
+#### Exercise: Update
+1. Suppose Lorenzo changes his first name to Lori. Update his name in the
+   database, and use both `print_databases.py` and `session.query` to make sure
+   your change worked.
+
+2. Do the same thing if Lisa changes her first name to Anastasia.
+
+#### Exercise: Delete
+From Python, remove all the instructors and staff from the database so that only students
+and TAs are left.
+
+#### Integrate SQLAlchemy into your Project!
+
+1. Copy the files to your project app
+2. Rename the database in initialize.py, add_to_database.py, print_databases.py
+3. Update database.setup.py with your Models
+4. Update initialize.py to populate your tables
+5. Test adding new data in add_to_database.py
+6. Initialize and test with print_databases.py
+7. Integrate into your app (hint: use add_to_database.py as reference)
+
+
+
+
+
+
