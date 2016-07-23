@@ -253,7 +253,7 @@ Run your code and use `print_databases.py`
 
 If you need to add a new column to an existing table or change an attribute:
 
-1. Modify your Models in `database_setup.py
+1. Modify your Models in `database_setup.py`
 2. Update `initialize.py`
 3. Delete your .db file
 4. Recreate your db by running `database_setup.py`
