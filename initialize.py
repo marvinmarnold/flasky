@@ -7,8 +7,8 @@ engine = create_engine('sqlite:///flasky.db')
 Base.metadata.create_all(engine)
 Base.metadata.bind = engine
 
-DBSession = sessionmaker(bind=engine)
-session = DBSession()
+DBSessionMaker = sessionmaker(bind=engine)
+dbSession = DBSessionMaker()
 
 ### These are the commands you just saw live.
 
@@ -43,14 +43,14 @@ eric = Person(
         hometown='Durango')
 
 # This deletes everything in your database.
-session.query(Person).delete()
-session.commit()
+dbSession.query(Person).delete()
+dbSession.commit()
 
 # This adds some rows to the database. Make sure you `commit` after `add`ing!
-session.add(marvin)
-session.add(lorenzo)
-session.add(anna)
-session.add(lisa)
-session.add(eric)
-session.commit()
+dbSession.add(marvin)
+dbSession.add(lorenzo)
+dbSession.add(anna)
+dbSession.add(lisa)
+dbSession.add(eric)
+dbSession.commit()
 

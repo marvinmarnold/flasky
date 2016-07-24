@@ -17,8 +17,8 @@ if __name__ == '__main__':
 
     metadata = MetaData(engine)
 
-    DBSession = sessionmaker(bind=engine)
-    session = DBSession()
+    DBSessionMaker = sessionmaker(bind=engine)
+    dbSession = DBSessionMaker()
     table_names = inspect(engine).get_table_names()
 
     table_strings = []
@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
         columns = [str(c).split('.')[-1] for c in table.columns]
 
-        table_to_print = session.query(table).all()
+        table_to_print = dbSession.query(table).all()
 
         max_lengths = []
 
