@@ -1,6 +1,5 @@
 from sqlalchemy import Column, Date, Float, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-import flask.ext.login as flask_login
 
 Base = declarative_base()
 
