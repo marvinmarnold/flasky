@@ -195,7 +195,7 @@ if __name__ == '__main__':
 $ cd && pwd
 > /home/student # if it doesn’t say that, get an instructor
 $ cd flasky
-$ pip3.5 install flask-sqlalchemy
+$ sudo pip3.5 install flask-sqlalchemy
 ```
 
 Now, set up the database. *Warning: if you already have people in the
