@@ -196,6 +196,7 @@ $ cd && pwd
 > /home/student # if it doesn’t say that, get an instructor
 $ cd flasky
 $ git checkout master
+$ git pull origin master
 $ sudo pip3.5 install flask-sqlalchemy
 ```
 
