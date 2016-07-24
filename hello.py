@@ -4,8 +4,6 @@ from sqlalchemy import create_engine
 from database_setup import Person, Base
 import hashlib
 
-import initialize
-
 ## App setup
 app = Flask(__name__)
 app.secret_key = 'super secret string'
