@@ -13,7 +13,8 @@ $ heroku login
 > Email: python@example.com
 > Password:
 ```
-6. Run the following:
+6. Remove `import initialize` from `hello.py`
+7. Run the following:
 ````
 $ heroku create --buildpack heroku/python
 # Copy requirements.txt and Procfile to the root of your project
