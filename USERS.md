@@ -1,5 +1,6 @@
 ## Setup
-** ALL INSTRUCTIONS SHOULD BE COMPLETED WITH VENV **
+**ALL INSTRUCTIONS SHOULD BE COMPLETED WITH VENV**
+
 ````
 source venv/bin/activate
 ````
