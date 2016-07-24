@@ -194,7 +194,7 @@ if __name__ == '__main__':
 # Verify directory structure
 $ cd && pwd
 > /home/student # if it doesn’t say that, get an instructor
-$ cd flasky
+$ cd marvin-flasky
 $ git checkout master
 $ git pull origin master
 $ sudo pip3.5 install flask-sqlalchemy
