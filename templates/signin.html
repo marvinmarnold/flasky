@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  {% if error %}
+    <div class="alert alert-danger" role="alert">
+      <strong>Oh snap!</strong> {{error}}
+    </div>
+  {% endif %}
+
+  <form action="/signin" method="POST">
+    <fieldset class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name='email' value="{{request.form.email }}">
+      <small class="text-muted">We'll never share your email with anyone else.</small>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Password" name='password'>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}

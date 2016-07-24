@@ -1,5 +1,6 @@
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
+from hello import hash_password
 
 from database_setup import Base, Person
 
@@ -16,31 +17,41 @@ marvin = Person(
         name='Marvin Arnold',
         gender='male',
         nationality='American',
-        hometown='New Orleans')
+        hometown='New Orleans',
+        email='marvin@meet.mit.edu',
+        hashed_password=hash_password('marvin'))
 
 lorenzo = Person(
         name='Lorenzo Brown',
         gender='male',
         nationality='American',
-        hometown='Dallas')
+        hometown='Dallas',
+        email='lorenzo@meet.mit.edu',
+        hashed_password=hash_password('lorenzo'))
 
 anna = Person(
         name='Anna Premo',
         gender='female',
         nationality='American',
-        hometown='Pittsburg')
+        hometown='Pittsburg',
+        email='anna@meet.mit.edu',
+        hashed_password=hash_password('anna'))
 
 lisa = Person(
         name='Lisa Kavanaugh',
         gender='female',
         nationality='German',
-        hometown='Fairbanks')
+        hometown='Fairbanks',
+        email='lisa@meet.mit.edu',
+        hashed_password=hash_password('lisa'))
 
 eric = Person(
         name='Eric Westberg',
         gender='male',
         nationality='American',
-        hometown='Durango')
+        hometown='Durango',
+        email='eric@meet.mit.edu',
+        hashed_password=hash_password('eric'))
 
 # This deletes everything in your database.
 dbSession.query(Person).delete()
@@ -53,4 +64,3 @@ dbSession.add(anna)
 dbSession.add(lisa)
 dbSession.add(eric)
 dbSession.commit()
-

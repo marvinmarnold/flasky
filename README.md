@@ -1,6 +1,8 @@
 # Flasky
 Sample app for MEET 2016 Y3 to practice with Flask.
 
+## [Learn how to add users](USERS.md)
+
 ## Exercise 0: Setup
 Go to github.com and create an account. Create a new PUBLIC repository named `flasky`. Do not add a README.
 
@@ -266,10 +268,3 @@ If you need to add a new column to an existing table or change an attribute:
 2. Update `initialize.py`
 3. Delete your .db file
 4. Recreate your db by running `initialize.py`
-
-
-
-
-
-
-

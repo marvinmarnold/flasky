@@ -1,6 +1,23 @@
-from flask import Flask, render_template
-app = Flask(__name__)
+from flask import Flask, render_template, redirect, url_for, request, session
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
+from database_setup import Person, Base
+import hashlib
 
+import initialize
+
+## App setup
+app = Flask(__name__)
+app.secret_key = 'super secret string'
+
+## DB setup
+engine = create_engine('sqlite:///flasky.db')
+Base.metadata.create_all(engine)
+Base.metadata.bind = engine
+DBSessionMaker = sessionmaker(bind=engine)
+dbSession = DBSessionMaker()
+
+## Fixtures
 users = [
     {
         'name': "Marvin",
@@ -9,17 +26,57 @@ users = [
     }
 ]
 
+## Password helpers
+# Use MD5 to hash a cleartext password
+def hash_password(password):
+    return hashlib.md5(password.encode()).hexdigest()
+
+# Returns True if Person with email has password
+def validate(email, password):
+    query = dbSession.query(Person).filter(
+        Person.email.in_([email]),
+        Person.hashed_password.in_([hash_password(password)])
+    )
+    return query.first() != None
+
+### Routes
+
 @app.route('/')
 def index():
-  return render_template('index.html', users=users)
+    return render_template('index.html', users=users)
+
+@app.route('/signin', methods=['GET', 'POST'])
+def signin():
+    error = None
+    if request.method == 'POST':
+        email = str(request.form['email'])
+        password = str(request.form['password'])
+
+        is_valid = validate(email, password)
+
+        if is_valid == False:
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            session['email'] = email
+            return redirect(url_for('signin'))
+
+    return render_template('signin.html', error=error)
+
+@app.route('/secret')
+def secret():
+    email = session.get('email')
+    if not email:
+        return redirect(url_for('signin'))
+    else:
+        return render_template('secret.html', email=email)
 
 @app.route('/user/<name>')
 def user(name):
-  return render_template('user.html', name=name)
+    return render_template('user.html', name=name)
 
 @app.errorhandler(404)
 def page_not_found(e):
-  return render_template('404.html')
+    return render_template('404.html')
 
 if __name__ == '__main__':
-  app.run(debug=True)
+    app.run(debug=True)
