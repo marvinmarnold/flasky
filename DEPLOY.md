@@ -16,6 +16,7 @@ $ heroku login
 6. Run the following:
 ````
 $ heroku create --buildpack heroku/python
+# Copy requirements.txt to the root of your project
 $ git push heroku master
 $ heroku ps:scale web=1
 $ heroku open
