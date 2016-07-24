@@ -195,6 +195,13 @@ if __name__ == '__main__':
 $ cd && pwd
 > /home/student # if it doesn’t say that, get an instructor
 $ cd marvin-flasky
+$ ls
+
+- Check to see if you have a /venv folder, if NOT run & activate
+$ python3.5 -m venv venv
+$ source venv/bin/activate
+
+
 $ git checkout master
 $ git pull origin master
 $ sudo pip3.5 install flask-sqlalchemy
