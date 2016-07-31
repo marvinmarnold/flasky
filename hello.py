@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, session
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from database_setup import Person, Base
+from database_setup import Person, Base, Photo, Tag
 import hashlib
 
 ## App setup
@@ -56,7 +56,13 @@ def signin():
             error = 'Invalid Credentials. Please try again.'
         else:
             session['email'] = email
-            return redirect(url_for('signin'))
+            user = dbSession.query(Person).filter_by(email=email).first()
+            username = user.name
+            if(username != None):
+                print("Username found")
+                session['name'] = username
+                print(session['name'])
+            return redirect(url_for('secret'))
 
     return render_template('signin.html', error=error)
 
@@ -70,7 +76,14 @@ def secret():
 
 @app.route('/user/<name>')
 def user(name):
-    return render_template('user.html', name=name)
+    user = dbSession.query(Person).filter_by(name=name).first()
+    return render_template('user.html', user=user)
+
+@app.route('/feed/<name>')
+def feed(name):
+    photos = dbSession.query(Photo).all()
+
+    return render_template('feed.html', photos=photos)
 
 @app.errorhandler(404)
 def page_not_found(e):
