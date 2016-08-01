@@ -1,8 +1,10 @@
 from flask import Flask, render_template, redirect, url_for, request, session
+from werkzeug.datastructures import FileStorage
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from database_setup import Person, Base, Photo, Tag
 import hashlib
+import base64
 
 ## App setup
 app = Flask(__name__)
@@ -43,9 +45,16 @@ def validate(email, password):
 def index():
     return render_template('index.html', users=users)
 
-@app.route('/paint')
+@app.route('/paint', methods=['GET', 'POST'])
 def paint():
-    return render_template('paint.html')
+    if request.method == 'POST':
+        imgData = request.data
+        print(imgData)
+        with open("static/imageToSave.png", "wb") as fh:
+            fh.write(base64.decodestring(imgData))
+        return "Success"
+    else:
+        return render_template('paint.html')
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():

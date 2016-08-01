@@ -1328,40 +1328,44 @@ body {
 			//         this.brushSizeSelector.addEventListener("change", this.onBrushSizeSelectorChanged.bind(this));
 
 			this.clearCanvasButton = document.getElementById('clear-canvas');
+
 			this.onClearCanvasButtonClicked = function(e) {
 				var rect = this.drawingArea.canvas.getBoundingClientRect();
 				this.drawingArea.context.clearRect(0, 0, rect.width,
 						rect.height);
 			}
-			this.clearCanvasButton.addEventListener("click",
-					this.onClearCanvasButtonClicked.bind(this));
 
-            this.saveCanvasButton = document.getElementById('save-canvas');
+			this.clearCanvasButton.addEventListener("click",
+				this.onClearCanvasButtonClicked.bind(this));
+
+      this.saveCanvasButton = document.getElementById('save-canvas');
+
 			this.onSaveCanvasButtonClicked = function(e) {
 				var canvas = document.getElementById("canvas");
-                  var context = canvas.getContext("2d");
-                  window.location = canvas.toDataURL("image/png");
-                var img= canvas.toDataURL("image/png");
-                //window.location = img;
-                img = img.replace(/^data:image\/(png|jpg);base64,/,"");
-                //alert(img);
+        var context = canvas.getContext("2d");
+        window.location = canvas.toDataURL("image/png");
+        var img= canvas.toDataURL("image/png");
+        //window.location = img;
+        img = img.replace(/^data:image\/(png|jpg);base64,/,"");
+        //alert(img);
 
+        console.log(img);
 
-                $.ajax({
-                    type: 'POST',
-                    url: '/upload',
-                    data: '{ "imageData" : "'+ img + '"}',
+        $.ajax({
+            type: 'POST',
+            url: '/paint',
+            data: img,
 
-                    contentType: 'application/json; charset=utf-8',
-                    dataType: 'json',
-                    success: function(msg){
-                        alert("Save Complete");
-                    }
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function(msg) {
+              log("success posting image")
+              alert("Save Complete");
+            }
 
-                });
-
-
+        });
 			}
+
 			this.saveCanvasButton.addEventListener("click",
 					this.onSaveCanvasButtonClicked.bind(this));
 
