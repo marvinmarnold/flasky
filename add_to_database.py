@@ -11,9 +11,9 @@ DBSessionMaker = sessionmaker(bind=engine)
 dbSession = DBSessionMaker()
 
 #Eric adds a new photo
-eric = dbSession.query(Person).filter_by(name="Eric Westberg").first()
+eric = dbSession.query(Person).filter_by(name="Eric").first()
 new_photo = Photo(user_id = eric.id,
-        url="http://i.huffpost.com/gen/1730217/images/o-SURFING-WORKOUT-facebook.jpg")
+        url="http://www.healthxchange.com.sg/healthyliving/DietandNutrition/PublishingImages/Satay-Not-Just-a-Sinful-Indulgence-Pic.jpg")
 new_photo.tags.append(Tag(name="food"))
 
 eric.photos.append(new_photo)

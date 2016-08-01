@@ -33,12 +33,24 @@
             <img class="card-img-top" src="{{photo.url}}" alt="Photo image">
             <div class="card-block">
                 <h4 class="card-title">{{photo.author.name}}</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Some quick example if you wanted to add description text.</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Tags:
+                    {% for tag in photo.tags %}
+                        {{tag.name}}
+                    {% endfor %}
+
+                </li>
+                <li class="list-group-item">Comments:
+                    <ul>
+                         {% for comment in photo.comments %}
+                        <li>
+                            <b>{{comment.commenter.name}}</b>: {{comment.comment_string}}
+                        </li>
+                         {% endfor %}
+                    </ul>
+                </li>
             </ul>
             <div class="card-block">
                 <a href="#" class="card-link">Card link</a>

@@ -19,7 +19,7 @@ class Person(Base):
     hometown = Column(String)
     hashed_password = Column(String)
     photos = relationship('Photo', backref='author')
-    comments = relationship('Comment', backref='Person')
+    comments = relationship('Comment', backref='commenter')
 
 
 class Photo(Base):

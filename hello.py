@@ -43,6 +43,10 @@ def validate(email, password):
 def index():
     return render_template('index.html', users=users)
 
+@app.route('/paint')
+def paint():
+    return render_template('paint.html')
+
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
     error = None
@@ -79,11 +83,25 @@ def user(name):
     user = dbSession.query(Person).filter_by(name=name).first()
     return render_template('user.html', user=user)
 
-@app.route('/feed/<name>')
-def feed(name):
+@app.route('/feed', methods=['GET', 'POST'])
+def feed():
+    print("in the feed view function")
+    tag = str(request.form['tag'])
+    print("The tag is:" + tag)
+    if(request.method == 'POST' and tag != None):
+        print(tag)
+        redirect(url_for('tagfeed')+ '/' + tag)
     photos = dbSession.query(Photo).all()
 
     return render_template('feed.html', photos=photos)
+
+@app.route('/feed/<tag>')
+def tagfeed(tag):
+    tag = dbSession.query(Tag).filter_by(name=tag).first()
+    photos = []
+    if (tag != None):
+        photos = tag.photos
+    return render_template('tagfeed.html', tag=tag, photos=photos, num_photos = len(photos))
 
 @app.errorhandler(404)
 def page_not_found(e):
